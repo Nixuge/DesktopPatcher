@@ -18,12 +18,13 @@ for key in PATCHES:
     with open(file_path, "r") as open_file:
         content = open_file.read()
         current_patch = PATCHES.get(key)
-        content.replace(current_patch["match"], current_patch["replacement"])
+        content = content.replace(current_patch["match"], current_patch["replacement"])
     
     try:
         with open(file_path, "w") as open_file: open_file.write(content)
+        print("Added for file", key)
     except PermissionError:
         print("You don't have permission to write to that folder! try running as root")
         exit(1)
     except Exception as e:
-        print("Exception happened ! " + e)
+        print("Exception happened !", e)
