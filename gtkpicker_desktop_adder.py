@@ -6,7 +6,7 @@ PATCHES = {
         "match": "Exec=qbittorrent %U",
         "replacement": "Exec=env XDG_CURRENT_DESKTOP=gnome qbittorrent %U"
     },
-    "telegramdesktop.desktop": {
+    "org.telegram.desktop.desktop": {
         "match": "Exec=telegram-desktop -- %u",
         "replacement": "Exec=env XDG_CURRENT_DESKTOP=gnome telegram-desktop -- %u"
     }
