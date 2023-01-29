@@ -1,0 +1,15 @@
+#/etc/pacman.d/hooks/gtkpicker-adder.hook
+
+[Trigger]
+Type = Package
+Operation = Install
+Operation = Upgrade
+Target = telegram-desktop
+Target = qbittorrent
+Target = onlyoffice-bin
+
+[Action]
+Description = Making apps use the GTK file picker...
+When = PostTransaction
+Depends = python
+Exec = /usr/bin/python /etc/pacman.d/hooks/gtkpicker-adder.py --noprint
