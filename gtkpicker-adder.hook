@@ -7,6 +7,7 @@ Operation = Upgrade
 Target = telegram-desktop
 Target = qbittorrent
 Target = onlyoffice-bin
+Target = sqlitebrowser
 
 [Action]
 Description = Making apps use the GTK file picker...

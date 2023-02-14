@@ -27,6 +27,11 @@ patches: list[Patch] = [
         "onlyoffice-desktopeditors.desktop",
         "Exec=/usr/bin/onlyoffice-desktopeditors %U",
         "Exec=env XDG_CURRENT_DESKTOP=gnome /usr/bin/onlyoffice-desktopeditors %U"
+    ),
+    Patch(
+        "sqlitebrowser.desktop"
+        "Exec=sqlitebrowser %f",
+        "Exec=env XDG_CURRENT_DESKTOP=gnome sqlitebrowser %f"
     )
 ]
 
