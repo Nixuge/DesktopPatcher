@@ -56,6 +56,12 @@ patches: list[Patch] = [
         "Exec=prismlauncher",
         "Exec=env QT_SCALE_FACTOR=1.7 prismlauncher"
     ),
+    Patch(
+        "qtzoom",
+        "multimc.desktop",
+        "Exec=multimc",
+        "Exec=env QT_SCALE_FACTOR=1.7 multimc"
+    ),
 ]
 
 
