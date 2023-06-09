@@ -10,7 +10,7 @@ Target = onlyoffice-bin
 Target = sqlitebrowser
 
 [Action]
-Description = Making apps use the GTK file picker...
+Description = Fixing .desktop files...
 When = PostTransaction
 Depends = python
 Exec = /usr/bin/python /etc/pacman.d/hooks/gtkpicker-adder.py --noprint

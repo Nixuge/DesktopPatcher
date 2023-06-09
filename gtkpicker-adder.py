@@ -7,6 +7,7 @@ from dataclasses import dataclass
 
 @dataclass
 class Patch:
+    patch_type: str
     file_name: str
     match: str
     replacement: str
@@ -14,31 +15,49 @@ class Patch:
 
 patches: list[Patch] = [
     Patch(
+        "gtkpicker",
         "org.qbittorrent.qBittorrent.desktop", 
         "Exec=qbittorrent %U", 
         "Exec=env XDG_CURRENT_DESKTOP=gnome qbittorrent %U"
     ),
     Patch(
+        "gtkpicker",
         "org.telegram.desktop.desktop",
-        "Exec=/usr/bin/telegram-desktop -- %u",
-        "Exec=env XDG_CURRENT_DESKTOP=gnome /usr/bin/telegram-desktop -- %u"
+        "Exec=telegram-desktop -- %u",
+        "Exec=env XDG_CURRENT_DESKTOP=gnome telegram-desktop -- %u"
     ),
     Patch(
+        "gtkpicker",
         "onlyoffice-desktopeditors.desktop",
         "Exec=/usr/bin/onlyoffice-desktopeditors %U",
         "Exec=env XDG_CURRENT_DESKTOP=gnome /usr/bin/onlyoffice-desktopeditors %U"
     ),
     Patch(
-        "sqlitebrowser.desktop"
+        "gtkpicker",
+        "sqlitebrowser.desktop",
         "Exec=sqlitebrowser %f",
         "Exec=env XDG_CURRENT_DESKTOP=gnome sqlitebrowser %f"
-    )
+    ),
+    Patch(
+        "wayland",
+        "discord.desktop",
+        "Exec=/usr/bin/discord\n",
+        "Exec=/usr/bin/discord --enable-features=UseOzonePlatform --ozone-platform=wayland\n"
+    ),
+    Patch(
+        "wayland",
+        "discord-canary.desktop",
+        "Exec=/usr/bin/discord-canary\n",
+        "Exec=/usr/bin/discord-canary --enable-features=UseOzonePlatform --ozone-platform=wayland\n"
+    ),
 ]
 
 
 def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("-np", "--noprint", required=False, action="store_true", help="Disables prints (except error prints)")
+    parser.add_argument("-g", "--gtkpicker", required=False, default=True, action="store_true", help="Enables GTK Picker patches")
+    parser.add_argument("-w", "--wayland", required=False, default=True, action="store_true", help="Enables Wayland patches")
     return parser.parse_args()
 
 args = get_args()
@@ -48,9 +67,16 @@ def print_valid(text: str):
         print(text)
 
 
+def patch_file():
+    pass
+
 if __name__ == "__main__":
     patch_count = 0
     for patch in patches:
+        if patch.patch_type == "gtkpicker" and not args.gtkpicker:
+            continue
+        if patch.patch_type == "wayland" and not args.wayland:
+            continue
         # read the file content
         full_path = patch.folder_path + patch.file_name
 
