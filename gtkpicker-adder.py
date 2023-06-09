@@ -50,14 +50,21 @@ patches: list[Patch] = [
         "Exec=/usr/bin/discord-canary\n",
         "Exec=/usr/bin/discord-canary --enable-features=UseOzonePlatform --ozone-platform=wayland\n"
     ),
+    Patch(
+        "qtzoom",
+        "org.prismlauncher.PrismLauncher.desktop",
+        "Exec=prismlauncher",
+        "Exec=env QT_SCALE_FACTOR=1.7 prismlauncher"
+    ),
 ]
 
 
 def get_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("-np", "--noprint", required=False, action="store_true", help="Disables prints (except error prints)")
+    parser.add_argument("-np", "--noprint", required=False, default=False, action="store_true", help="Disables prints (except error prints)")
     parser.add_argument("-g", "--gtkpicker", required=False, default=True, action="store_true", help="Enables GTK Picker patches")
     parser.add_argument("-w", "--wayland", required=False, default=True, action="store_true", help="Enables Wayland patches")
+    parser.add_argument("-q", "--qtzoom", required=False, default=False, action="store_true", help="Enables QT zoom patches")
     return parser.parse_args()
 
 args = get_args()
@@ -76,6 +83,8 @@ if __name__ == "__main__":
         if patch.patch_type == "gtkpicker" and not args.gtkpicker:
             continue
         if patch.patch_type == "wayland" and not args.wayland:
+            continue
+        if patch.patch_type == "qtzoom" and not args.qtzoom:
             continue
         # read the file content
         full_path = patch.folder_path + patch.file_name

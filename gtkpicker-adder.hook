@@ -13,4 +13,4 @@ Target = sqlitebrowser
 Description = Fixing .desktop files...
 When = PostTransaction
 Depends = python
-Exec = /usr/bin/python /etc/pacman.d/hooks/gtkpicker-adder.py --noprint
+Exec = /usr/bin/python /etc/pacman.d/hooks/gtkpicker-adder.py --noprint --qtzoom
