@@ -51,6 +51,11 @@ patches: list[Patch] = [
         "Exec=/usr/bin/discord-canary --enable-features=UseOzonePlatform --ozone-platform=wayland\n"
     ),
     Patch(
+        "wayland",
+        "firefox.desktop",
+        "Exec=/usr/lib/firefox/firefox %u",
+        "Exec=env MOZ_ENABLE_WAYLAND=1 /usr/lib/firefox/firefox %u"
+    ),    Patch(
         "qtzoom",
         "org.prismlauncher.PrismLauncher.desktop",
         "Exec=prismlauncher",
