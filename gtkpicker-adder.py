@@ -39,6 +39,12 @@ patches: list[Patch] = [
         "Exec=env XDG_CURRENT_DESKTOP=gnome sqlitebrowser %f"
     ),
     Patch(
+        "gtkpicker",
+        "com.obsproject.Studio.desktop",
+        "Exec=obs",
+        "Exec=env XDG_CURRENT_DESKTOP=gnome obs"
+    ),
+    Patch(
         "wayland",
         "discord.desktop",
         "Exec=/usr/bin/discord\n",
@@ -55,7 +61,8 @@ patches: list[Patch] = [
         "firefox.desktop",
         "Exec=/usr/lib/firefox/firefox %u",
         "Exec=env MOZ_ENABLE_WAYLAND=1 /usr/lib/firefox/firefox %u"
-    ),    Patch(
+    ),    
+    Patch(
         "qtzoom",
         "org.prismlauncher.PrismLauncher.desktop",
         "Exec=prismlauncher",
