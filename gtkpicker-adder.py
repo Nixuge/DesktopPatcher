@@ -4,6 +4,7 @@
 
 import argparse
 from dataclasses import dataclass
+import os
 
 @dataclass
 class Patch:
@@ -106,6 +107,9 @@ if __name__ == "__main__":
             continue
         # read the file content
         full_path = patch.folder_path + patch.file_name
+
+        if not os.path.isfile(full_path):
+            continue
 
         with open(full_path, "r") as open_file:
             old_content = open_file.read()
