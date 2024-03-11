@@ -74,13 +74,25 @@ patches: list[Patch] = [
         PatchType.WAYLAND,
         "discord.desktop",
         "Exec=/usr/bin/discord\n",
-        "Exec=/usr/bin/discord --enable-features=UseOzonePlatform --ozone-platform=wayland\n"
+        "Exec=/usr/bin/discord --ozone-platform-hint=auto\n"
     ),
     Patch(
         PatchType.WAYLAND,
         "discord-canary.desktop",
         "Exec=/usr/bin/discord-canary\n",
-        "Exec=/usr/bin/discord-canary --enable-features=UseOzonePlatform --ozone-platform=wayland\n"
+        "Exec=/usr/bin/discord-canary --ozone-platform-hint=auto\n"
+    ),
+    Patch(
+        PatchType.WAYLAND,
+        "vesktop.desktop",
+        "Exec=/usr/bin/vesktop\n",
+        "Exec=/usr/bin/vesktop --ozone-platform-hint=auto\n"
+    ),
+    Patch(
+        PatchType.WAYLAND,
+        "signal-desktop.desktop",
+        "Exec=signal-desktop -- %u\n",
+        "Exec=signal-desktop --ozone-platform-hint=auto -- %u\n"
     ),
     Patch(
         PatchType.WAYLAND,
