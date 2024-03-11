@@ -96,6 +96,12 @@ patches: list[Patch] = [
     ),
     Patch(
         PatchType.WAYLAND,
+        "code.desktop",
+        "Exec=/usr/bin/code --unity-launch %F",
+        "Exec=/usr/bin/code --ozone-platform-hint=auto --unity-launch %F"
+    ),    
+    Patch(
+        PatchType.WAYLAND,
         "firefox.desktop",
         "Exec=/usr/lib/firefox/firefox %u",
         "Exec=env MOZ_ENABLE_WAYLAND=1 /usr/lib/firefox/firefox %u"
@@ -171,7 +177,8 @@ if __name__ == "__main__":
             patch_count += 1
             print_valid(f"Patched file {patch.file_name}")
         elif res == PatchResult.UNCHANGED:
-            print_valid(f"File {patch.file_name} unchanged")
+            # print_valid(f"File {patch.file_name} unchanged")
+            pass
         else:
             print_valid(f"Error patching file {patch.file_name}: {res.name}")
     # After the loop, print how many files were changed
