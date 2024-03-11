@@ -4,13 +4,10 @@
 Type = Package
 Operation = Install
 Operation = Upgrade
-Target = telegram-desktop
-Target = qbittorrent
-Target = onlyoffice-bin
-Target = sqlitebrowser
+Target = *
 
 [Action]
 Description = Fixing .desktop files...
 When = PostTransaction
 Depends = python
-Exec = /usr/bin/python /etc/pacman.d/hooks/gtkpicker-adder.py --noprint --qtzoom
+Exec = /usr/bin/python /etc/pacman.d/hooks/gtkpicker-adder.py --noprint --all
