@@ -13,7 +13,7 @@ However, this has now evolved to support multiple patch types, which as of now i
 - Run it
 - Done
 ### Using pacman hooks
-- Install the package located [here](https://aur.archlinux.org/packages/gtkpickeradder-hook) 
+- Install the package located [here](https://aur.archlinux.org/packages/desktop-patcher-hook) 
    
 All done, the hook will run when installing/upgrading an app supported by this script
 

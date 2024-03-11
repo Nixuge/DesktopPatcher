@@ -1,4 +1,4 @@
-#/etc/pacman.d/hooks/gtkpicker-adder.hook
+#/etc/pacman.d/hooks/desktop_patcher.hook
 
 [Trigger]
 Type = Package
@@ -10,4 +10,4 @@ Target = *
 Description = Fixing .desktop files...
 When = PostTransaction
 Depends = python
-Exec = /usr/bin/python /etc/pacman.d/hooks/gtkpicker-adder.py --noprint --all
+Exec = /usr/bin/python /etc/pacman.d/hooks/desktop_patcher.py --noprint --all
