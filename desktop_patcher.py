@@ -99,7 +99,13 @@ patches: list[Patch] = [
         "code.desktop",
         "Exec=/usr/bin/code --unity-launch %F",
         "Exec=/usr/bin/code --ozone-platform-hint=auto --unity-launch %F"
-    ),    
+    ),
+    Patch(
+        PatchType.WAYLAND,
+        "cider.desktop",
+        "Exec=/opt/Cider/cider %U",
+        "Exec=/opt/Cider/cider --ozone-platform-hint=auto %U"
+    ),   
     Patch(
         PatchType.WAYLAND,
         "firefox.desktop",
