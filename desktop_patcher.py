@@ -85,8 +85,8 @@ patches: list[Patch] = [
     Patch(
         PatchType.WAYLAND,
         "vesktop.desktop",
-        "Exec=/usr/bin/vesktop\n",
-        "Exec=/usr/bin/vesktop --ozone-platform-hint=auto\n"
+        "Exec=vesktop\n",
+        "Exec=vesktop --ozone-platform-hint=auto\n"
     ),
     Patch(
         PatchType.WAYLAND,
@@ -100,12 +100,12 @@ patches: list[Patch] = [
         "Exec=/usr/bin/code --unity-launch %F",
         "Exec=/usr/bin/code --ozone-platform-hint=auto --unity-launch %F"
     ),
-    Patch(
-        PatchType.WAYLAND,
-        "cider.desktop",
-        "Exec=/opt/Cider/cider %U",
-        "Exec=/opt/Cider/cider --ozone-platform-hint=auto %U"
-    ),
+    # Patch(
+    #     PatchType.WAYLAND,
+    #     "cider.desktop",
+    #     "Exec=/opt/Cider/cider %U",
+    #     "Exec=/opt/Cider/cider --ozone-platform-hint=auto %U"
+    # ),
     Patch(
         PatchType.WAYLAND,
         "postman.desktop",
