@@ -100,6 +100,14 @@ patches: list[Patch] = [
         "Exec=/usr/bin/code --unity-launch %F",
         "Exec=/usr/bin/code --ozone-platform-hint=auto --unity-launch %F"
     ),
+    # Note: i'm a lunarclient maintainer on the AUR, but still want to separate this.
+    Patch(
+        PatchType.WAYLAND,
+        "lunarclient.desktop",
+        "Exec=env DESKTOPINTEGRATION=false /usr/bin/lunarclient --no-sandbox %U",
+        "Exec=env DESKTOPINTEGRATION=false /usr/bin/lunarclient --ozone-platform-hint=auto --no-sandbox %U"
+    ),
+    # Note: this is having issues as of now, there's no GUI if you set this flag.
     # Patch(
     #     PatchType.WAYLAND,
     #     "cider.desktop",
