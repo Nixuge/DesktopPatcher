@@ -11,6 +11,7 @@ class PatchType(Enum):
     GTKPICKER = 1
     WAYLAND = 2
     QTZOOM = 3
+    NVIDIA = 4
     OTHER = 999
 
 @dataclass
@@ -27,6 +28,7 @@ def get_args():
     parser.add_argument("-g", "--gtkpicker", required=False, default=True, action="store_true", help="Enables GTK Picker patches")
     parser.add_argument("-w", "--wayland", required=False, default=True, action="store_true", help="Enables Wayland patches")
     parser.add_argument("-q", "--qtzoom", required=False, default=False, action="store_true", help="Enables QT zoom patches")
+    parser.add_argument("-nv", "--nvidia", required=False, default=False, action="store_true", help="Enables NVIDIA specific patches")
     parser.add_argument("-o", "--other", required=False, default=False, action="store_true", help="Enables misc patches")
     parser.add_argument("--all", required=False, default=False, action="store_true", help="Enables all patches")
     return parser.parse_args()
@@ -137,6 +139,21 @@ patches: list[Patch] = [
         "multimc.desktop",
         "Exec=multimc",
         "Exec=env QT_SCALE_FACTOR=1.7 multimc"
+    ),
+    # Note: suboptimal, patches for both w & without wayland
+    # SHOULD ADD A REGEX OPTION FOR THE PATCHES
+    # BUT REALLY CANT BE BOTHERED RN TBH
+    Patch(
+        PatchType.NVIDIA,
+        "firefox.desktop",
+        "Exec=env MOZ_ENABLE_WAYLAND=1 /usr/lib/firefox/firefox %u",
+        "Exec=env MOZ_ENABLE_WAYLAND=1 MOZ_DISABLE_RDD_SANDBOX=1 LIBVA_DRIVER_NAME=nvidia __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/10_nvidia.json /usr/lib/firefox/firefox %u"
+    ),
+    Patch(
+        PatchType.NVIDIA,
+        "firefox.desktop",
+        "Exec=/usr/lib/firefox/firefox %u",
+        "Exec=env MOZ_DISABLE_RDD_SANDBOX=1 LIBVA_DRIVER_NAME=nvidia __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/10_nvidia.json /usr/lib/firefox/firefox %u"
     ),
 ]
 

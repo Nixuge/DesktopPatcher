@@ -5,6 +5,7 @@ However, this has now evolved to support multiple patch types, which as of now i
 - Gtk File Picker (XDG_CURRENT_DESKTOP=gnome), original purpose described above
 - Wayland (--ozone-platform-hint=auto & other), enable wayland support on electron apps & other apps, notabely fixes visual glitches & screensharing (must have on wayland tbh)
 - Qt Zoom (QT_SCALE_FACTOR=1.7), more of a personal preference, only patches mc launchers because they look too small on a 1440p screen
+- NVIDIA (basically only https://github.com/elFarto/nvidia-vaapi-driver)
 & can theorically be used to patch any text file
 
 # How to use
