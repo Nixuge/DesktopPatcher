@@ -99,8 +99,8 @@ patches: list[Patch] = [
     Patch(
         PatchType.WAYLAND,
         "code.desktop",
-        "Exec=/usr/bin/code --unity-launch %F",
-        "Exec=/usr/bin/code --ozone-platform-hint=auto --unity-launch %F"
+        "Exec=/usr/bin/code %F",
+        "Exec=/usr/bin/code --ozone-platform-hint=auto %F"
     ),
     # Note: i'm a lunarclient maintainer on the AUR, but still want to separate this.
     Patch(
