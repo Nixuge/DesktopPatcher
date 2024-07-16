@@ -116,12 +116,12 @@ patches: list[Patch] = [
     #     "Exec=/opt/Cider/cider %U",
     #     "Exec=/opt/Cider/cider --ozone-platform-hint=auto %U"
     # ),
-    Patch(
-        PatchType.WAYLAND,
-        "postman.desktop",
-        "Exec=/opt/postman/Postman %U",
-        "Exec=/opt/postman/Postman --ozone-platform-hint=auto %U"
-    ),   
+    # Patch(
+    #     PatchType.WAYLAND,
+    #     "postman.desktop",
+    #     "Exec=/opt/postman/Postman %U",
+    #     "Exec=/opt/postman/Postman --ozone-platform-hint=auto %U"
+    # ),   
     Patch(
         PatchType.WAYLAND,
         "firefox.desktop",
