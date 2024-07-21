@@ -1,6 +1,7 @@
 # What's this
-At first, this was just a script to add `env XDG_CURRENT_DESKTOP=gnome` to desktop files so they use the Gnome file picker on i3/bspwm/other wms.
+This is a simple utility script that edits your desktop files to make your experience better
 
+At first, this was just a script to add `env XDG_CURRENT_DESKTOP=gnome` to desktop files so they use the Gnome file picker on i3/bspwm/other wms.
 However, this has now evolved to support multiple patch types, which as of now include:
 - Gtk File Picker (XDG_CURRENT_DESKTOP=gnome), original purpose described above
 - Wayland (--ozone-platform-hint=auto & other), enable wayland support on electron apps & other apps, notabely fixes visual glitches & screensharing (must have on wayland tbh)
