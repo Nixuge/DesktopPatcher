@@ -110,12 +110,12 @@ patches: list[Patch] = [
         "Exec=env DESKTOPINTEGRATION=false /usr/bin/lunarclient --ozone-platform-hint=auto --no-sandbox %U"
     ),
     # Note: this is having issues as of now, there's no GUI if you set this flag.
-    # Patch(
-    #     PatchType.WAYLAND,
-    #     "cider.desktop",
-    #     "Exec=/opt/Cider/cider %U",
-    #     "Exec=/opt/Cider/cider --ozone-platform-hint=auto %U"
-    # ),
+    Patch(
+        PatchType.WAYLAND,
+        "cider.desktop",
+        "Exec=/opt/Cider/cider %U",
+        "Exec=/opt/Cider/cider --ozone-platform-hint=auto %U"
+    ),
     # Patch(
     #     PatchType.WAYLAND,
     #     "postman.desktop",
