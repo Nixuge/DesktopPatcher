@@ -127,7 +127,19 @@ patches: list[Patch] = [
         "firefox.desktop",
         "Exec=/usr/lib/firefox/firefox %u",
         "Exec=env MOZ_ENABLE_WAYLAND=1 /usr/lib/firefox/firefox %u"
-    ),    
+    ),
+    Patch(
+        PatchType.WAYLAND,
+        "osu-lazer.desktop",
+        "Exec=/usr/bin/osu-lazer",
+        "Exec=env SDL_VIDEODRIVER=wayland /usr/bin/osu-lazer"
+    ),
+    Patch(
+        PatchType.WAYLAND,
+        "osu-lazer-uri-handler.desktop",
+        "Exec=/usr/bin/osu-lazer %u",
+        "Exec=env SDL_VIDEODRIVER=wayland /usr/bin/osu-lazer %u"
+    ),
     Patch(
         PatchType.QTZOOM,
         "org.prismlauncher.PrismLauncher.desktop",
